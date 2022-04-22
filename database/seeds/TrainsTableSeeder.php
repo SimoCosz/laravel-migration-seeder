@@ -13,18 +13,22 @@ class TrainsTableSeeder extends Seeder
      */
     public function run(faker $faker)
     {
-        $train = new Train();
+        for($i = 0; $i<1000; $i++){
 
-        $train->azienda = $faker->word();
-        $train->stazione_di_partenza = $faker->city();
-        $train->stazione_di_arrivo = $faker->city();
-        $train->orario_di_partenza = $faker->time();
-        $train->orario_di_arrivo = $faker->time();
-        $train->codice_treno = $faker->bothify('??#?###?');
-        $train->numero_carrozze = $faker->randomNumber(1, 30);
-        $train->in_orario = $faker->boolean();
-        $train->cancellato = $faker->boolean();
+            $train = new Train();
 
-        $train->save();
+            $train->azienda = $faker->word();
+            $train->stazione_di_partenza = $faker->city();
+            $train->stazione_di_arrivo = $faker->city();
+            $train->orario_di_partenza = $faker->time();
+            $train->orario_di_arrivo = $faker->time();
+            $train->codice_treno = $faker->bothify('??#?###?');
+            $train->numero_carrozze = $faker->randomNumber(1, 30);
+            $train->in_orario = $faker->boolean();
+            $train->cancellato = $faker->boolean();
+    
+            $train->save();
+            
+        };
     }
 }
