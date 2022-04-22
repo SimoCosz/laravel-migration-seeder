@@ -13,11 +13,13 @@ class TrainsTableSeeder extends Seeder
      */
     public function run(faker $faker)
     {
-        for($i = 0; $i<1000; $i++){
+        $aziende = ['TrenItalia', 'Italo', 'Trenord'];
+
+        for($i = 0; $i<20; $i++){
 
             $train = new Train();
 
-            $train->azienda = $faker->word();
+            $train->azienda = $faker->randomElement($aziende);
             $train->stazione_di_partenza = $faker->city();
             $train->stazione_di_arrivo = $faker->city();
             $train->orario_di_partenza = $faker->time();
